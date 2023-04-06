@@ -15,7 +15,7 @@ class App extends React.Component{
 
   store.subscribe(()=>{
     console.log("Updated")
-
+    console.log(store.getState())
     this.forceUpdate();
   })
 
@@ -23,8 +23,24 @@ class App extends React.Component{
 
   console.log(store.getState());
  }
+
+ isMovieFavourite=(movie)=>{
+  const {favourites}=this.props.store.getState();
+
+  const index=favourites.indexOf(movie);
+
+  if(index!=-1){
+    return true;
+  }
+  return false;
+}
+
   render(){
-    const movies=this.props.store.getState();
+    //const movies=this.props.store.getState().list;
+    const {list}=this.props.store.getState();
+
+   
+
   return (
     <div className="App">
       <Navbar/>
@@ -37,8 +53,9 @@ class App extends React.Component{
 
       <div className='list'>
         {
-          movies.map((movie,index)=>(
-            <MovieCard movie={movie} key={`movies_${index}`}/>
+          list.map((movie,index)=>(
+            <MovieCard movie={movie} key={`movies_${index}`} dispatch={this.props.store.dispatch} 
+            isFavourite={this.isMovieFavourite(movie)}/>
           ))
         }
       </div>
