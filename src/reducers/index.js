@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ADD_FAVOURITES, ADD_MOVIES,REMOVE_FAVOURITES,SET_SHOW_FAVOURTIES } from "../actions";
+import { ADD_FAVOURITES, ADD_MOVIES,REMOVE_FAVOURITES,SET_SHOW_FAVOURTIES} from "../actions";
 
 
 const initialMoviesState={
