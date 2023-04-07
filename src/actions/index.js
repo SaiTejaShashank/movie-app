@@ -3,7 +3,7 @@ export const ADD_FAVOURITES='ADD_FAVOURITES';
 export const REMOVE_FAVOURITES='REMOVE_FAVOURITES';
 export const SET_SHOW_FAVOURTIES='SET_SHOW_FAVOURTIES';
 export const ADD_MOVIE_TO_LIST='ADD_MOVIE_TO_LIST';
-export const HANDLE_MOVIE_SEARCH='HANDLE_MOVIE_SEARCH';
+export const ADD_SEARCH_RESULT='ADD_SEARCH_RESULT';
 
 export function setShowFavourites(val){
     return{
@@ -54,6 +54,14 @@ export function handleMovieSearch(movie){
             console.log('movie',movie);
 
             //dispatch an action
+            dispatch(addMovieSearchResult(movie));
         }))
+    }
+}
+
+export function addMovieSearchResult(movie){
+    return{
+        type:ADD_SEARCH_RESULT,
+        movie:movie
     }
 }
