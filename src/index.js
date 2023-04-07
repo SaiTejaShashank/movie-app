@@ -7,14 +7,11 @@ import App from './components/App';
 import rootReducer from './reducers'; //export default used so any name can be given
 
 
-const logger=function(obj){
-  return function(next){
-    return function(action){
+const logger=(obj)=>(next)=>(action)=>{
       console.log('ACTION_TYPE=',action.type)
       next(action); //calls next middlewares if available or dispatches action if not there
     }
-  }
-}
+  
 const store=createStore(rootReducer,applyMiddleware(logger));
 
 
