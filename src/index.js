@@ -4,8 +4,7 @@ import { createStore } from 'redux';
 
 import './index.css';
 import App from './components/App';
-import rootReducer from './reducers';
-
+import rootReducer from './reducers'; //export default used so any name can be given
 
 const store=createStore(rootReducer);
 
