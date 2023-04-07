@@ -25,7 +25,7 @@ class App extends React.Component{
  }
 
  isMovieFavourite=(movie)=>{
-  const {favourites}=this.props.store.getState();
+  const {favourites}=this.props.store.getState().movies;
 
   const index=favourites.indexOf(movie);
 
@@ -41,7 +41,9 @@ onChangeTab=(val)=>{
 
   render(){
     //const movies=this.props.store.getState().list;
-    const {list,favourites,showFavourites}=this.props.store.getState();
+
+    const movies=this.props.store.getState().movies;
+    const {list,favourites,showFavourites}=movies;
 
    
     const displayMovies=showFavourites?favourites:list;
